@@ -55,10 +55,9 @@ ul li a:hover::after {
 ```
 
 ## Capitalize
-
 - A nevek teljesen kisbetűsek, ezért a szebb megjelenítés érdekében Nagy Szókezdő formázást adtam hozzá. //
 
-```js
+```javascript
 <td class="capitalize">${this.#obj.name.firstname} ${this.#obj.name.lastname}</td>
 
 /*
@@ -66,4 +65,16 @@ ul li a:hover::after {
   text-transform: capitalize;
 }
 */
-```            
+```
+
+## Random háttérszínek
+- Math.random-mal kiválasztás listából
+
+```javascript
+ szinez() {
+        const kartyaElem = this.szuloElem.querySelector(".card:last-child img");
+        const szinek = ["#E3F2FD", "#EEF6FB", "#F1F5F9", "#EDEDED", "#E6E8EA", "#E4DCD6"];
+        const randomIndex = Math.floor(Math.random() * szinek.length);
+        kartyaElem.style.backgroundColor = szinek[randomIndex];
+    }
+```
