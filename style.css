@@ -1,0 +1,165 @@
+:root {
+  --szin-kiemel: #4A3F35;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--szin-kiemel);
+    outline-offset: 2px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul li {
+  list-style-type: none;
+  padding: 5px;
+}
+
+ul li a, 
+ul li a:visited {
+  color: black;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+
+ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--szin-kiemel);
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s;
+}
+
+ul li a:hover {
+  color: var(--szin-kiemel);
+}
+
+ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+body, .ar {
+  font-family: 'Bodoni Moda', sans-serif;
+  text-align: center;
+}
+
+h1, h2, .kategoria {
+  font-family: 'Manrope', sans-serif;
+}
+
+h1 {
+  padding: 20px 0;
+}
+
+.tartalom {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 90vw;
+  margin: 40px auto;
+  max-width: 450px;
+}
+
+.user-tartalom {
+  width: 90vw;
+  margin: 40px auto;
+  max-width: 1000px;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+th, td {
+  border: 1px solid var(--szin-kiemel);
+  padding: 5px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.card {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  border: none;
+}
+
+.card p {
+   -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+img{
+  width: 100%;
+  overflow: hidden;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  min-height: 3rem;
+}
+
+.kategoria {
+  color: var(--szin-kiemel);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.ar {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.leiras {
+  font-size: 0.9rem;
+}
+
+.ertekeles {
+  padding: 5px 15px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--szin-kiemel);
+}
+
+@media (min-width: 600px){
+  .tartalom {
+    display: block; 
+    column-count: 3;
+    column-gap: 20px;
+    width: 90vw;
+    max-width: 800px;
+    margin: 30px auto;
+  }
+
+  .card {
+    margin: 0 0 20px 0; 
+    display: inline-block;
+    width: 100%;
+    border: 1px solid black;
+  }
+}
