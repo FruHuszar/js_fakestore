@@ -13,8 +13,10 @@ export default class Service {
    *
    */
 
-  getData(VEGPONT, callback) {
-    const errorDiv = document.querySelector(".error-message");
+  getData(VEGPONT, callback, hibaObjektum) {
+    if (hibaObjektum) {
+      hibaObjektum.elrejt();
+    }
 
     fetch(VEGPONT)
       .then((response) => {
@@ -24,14 +26,12 @@ export default class Service {
         return response.json();
       })
       .then((data) => {
-        if (errorDiv) errorDiv.style.display = "none";
         callback(data);
       })
       .catch((error) => {
         console.error("Fetch hiba:", error);
-        if (errorDiv) {
-          errorDiv.innerText = "Hiba történt a termékek lekérése során.";
-          errorDiv.style.display = "block";
+        if (hibaObjektum) {
+          hibaObjektum.megjelenit("Hiba történt a termékek lekérése során.");
         }
       });
   }
